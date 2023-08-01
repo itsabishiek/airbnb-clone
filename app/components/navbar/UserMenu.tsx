@@ -71,7 +71,7 @@ const UserMenu: React.FC<UserMenuProps> = () => {
               </>
             ) : (
               <>
-                <MenuItem label="Login" onClick={() => router.push("/trips")} />
+                <MenuItem label="Login" onClick={() => {}} />
                 <MenuItem label="Sign up" onClick={registerModal.onOpen} />
               </>
             )}
