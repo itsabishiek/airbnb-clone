@@ -4,6 +4,7 @@ import Container from "./components/Container";
 
 import React from "react";
 import ListingCard from "./components/listings/ListingCard";
+import EmptyState from "./components/EmptyState";
 
 type HomeProps = {
   searchParams: IListingsParams;
@@ -12,6 +13,10 @@ type HomeProps = {
 const Home: React.FC<HomeProps> = async ({ searchParams }) => {
   const listings = await getListings(searchParams);
   const currentUser = await getCurrentUser();
+
+  if (listings.length === 0) {
+    return <EmptyState showReset />;
+  }
 
   return (
     <Container>
